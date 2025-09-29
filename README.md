@@ -1,4 +1,6 @@
 DreamCars Project
+
+
 Ez a projekt egy webalkalmazás, amely autórajongóknak készült, és a világ legizgalmasabb sportautóit, izomautóit és klasszikusait mutatja be. A felhasználók könnyedén böngészhetnek a különböző autómodellek között, részletes műszaki adatokat olvashatnak, és foglalhatnak is autókat.
 
 Fő funkciók
@@ -46,3 +48,4 @@ Reszponzív webdesign
 Szerző és kapcsolat
 Projekt készítője: Juhász Ferenc Dániel, Varga Roland Dáriusz, Osikóczki Sándor Mátyás
 Elérhetőség: [Email cím vagy más elérhetőség]
+
