@@ -41,7 +41,7 @@ nav a {
 }
 
 nav a:hover {
-    color: #1e90ff;
+    color: #e50914;
 }
 
 /*Main*/
@@ -111,7 +111,7 @@ footer {
 }
 /* Kezdőlap háromszekciós elrendezés */
 .main-content {
-  display: flex;
+  display: table-column;
   gap: 2rem;
   justify-content: center;
   align-items: flex-start;
@@ -123,6 +123,12 @@ footer {
 .about {
   flex: 2 1 0;
   padding-right: 1rem;
+  text-align: center;
+  font-size: 23px;
+}
+
+.about h2 {
+  color: #b20710;
 }
 
 .about button {
@@ -150,7 +156,7 @@ footer {
 
 .highlight-cars {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 1rem;
 }
 
@@ -186,63 +192,88 @@ footer {
   font-size: 0.9rem;
 }
 
+/* MODOSITANDO KINEZET (By: Varga Dárius) */
+
 .testimonials {
-  flex: 1.2 1 0;
   background: #222;
   color: #ccc;
-  padding: 2rem 1rem;
-  font-style: italic;
+  margin-top: 1rem;
+  padding: 1rem 1.5rem;
   border-radius: 12px;
-  max-width: 350px;
+  max-width: 100%;     /* igazodik a gridhez */
   box-sizing: border-box;
+  text-align: center;
+}
+
+.testimonials h2 {
+  color: #e50914;
+  margin-bottom: 0.5rem;
+  margin-top: -2.5rem;
+  font-size: 1.8rem;
+}
+
+.testimonials .comments {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap; /* kisebb kijelzőn alá fognak törni */
 }
 
 .testimonials blockquote {
-  margin: 0 0 1.5rem 0;
-  border-left: 4px solid #e50914;
-  padding-left: 1rem;
+  flex: 1 1 300px;   /* reszponzív szélesség */
+  background: #1a1a1a;
+  padding: 1rem;
+  border-radius: 10px;
+  font-style: italic;
+  margin: 0;
+  max-width: 500px;
 }
 
 .testimonials footer {
   font-style: normal;
-  text-align: right;
+  text-align: left;
   margin-top: 0.5rem;
   font-weight: bold;
   font-size: 0.9rem;
 }
 
+
 /*Slider*/
+/*
 .slider-container {
   position: relative;
-  max-width: 100%; /* vagy amekkorát szeretnél */
+  max-width: 100%; /* vagy amekkorát szeretnél 
   margin: 40px auto 20px auto;
   display: flex;
+  overflow: hidden;
   align-items: center;
   justify-content: center;
 }
 
 .slider-viewport {
-  width: 900px; /* ha 3x300px képet akarsz */
+  width: 100%;
+  max-width: 1200px;   /* középen max méret 
   overflow: hidden;
+  margin: 0 auto;
   border-radius: 12px;
   background: #181818;
 }
 
 .slider-track {
   display: flex;
-  flex-wrap: nowrap;
+  gap: 10px;              /* képek közötti távolság 
   transition: transform 0.5s ease;
   will-change: transform;
 }
 
-
-
 .slider-track img {
-  width: 300px; 
-  height: 200px; 
+  flex: 0 0 300px;        /* minden kép fix szélesség 
+  height: 200px;
   object-fit: cover;
   border-radius: 10px;
 }
+
+
 
 .slider-btn {
   position: absolute;
@@ -261,17 +292,17 @@ footer {
 }
 
 .slider-btn.prev {
-  left: 0;       /* most teljesen a bal szélen lesz */
+  left: 0;       /* most teljesen a bal szélen lesz 
 }
 
 .slider-btn.next {
-  right: 0;      /* most teljesen a jobb szélen lesz */
+  right: 0;      /* most teljesen a jobb szélen lesz 
 }
 
 .slider-btn:hover {
   background: #b20710;
   opacity: 1;
-}
+}*/
 
 .car-selector {
   max-width: 800px;
