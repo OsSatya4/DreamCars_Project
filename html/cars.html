@@ -11,21 +11,24 @@
 <body>
 
   <header>
-    <h1>Autóink</h1>
-     <nav>
-      <a href="index.html">Kezdőlap</a>
-      <a href="cars.html">Autók</a>
-      <a href="booking.html">Foglalás</a>
-      <a href="login.html">Bejelentkezés</a>
-      <a href="register.html">Regisztráció</a>
-    </nav>
-  </header>
+        <h1>Autóink</h1>
+        <nav>
+            <div class="menu-toggle" id="menu-toggle">☰</div>
+            <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">Kezdőlap</a></li>
+            <li><a href="cars.html">Autók</a></li>
+            <li><a href="booking.html">Foglalás</a></li>
+            <li><a href="login.html">Bejelentkezés</a></li>
+            <li><a href="register.html">Regisztráció</a></li>
+            </ul>
+        </nav>
+    </header>
 
   <main>
     <section class="car-selector">
-  <h2>Válassz autót</h2>
+  <h2>Válassz márkát</h2>
   <select id="car-select">
-    <option value="" selected disabled>Válassz egy autót...</option>
+    <option value="" selected disabled>Válassz egy márkát...</option>
     <option value="gt-r">Nissan GT-R</option>
     <option value="bmw-m4">BMW M4</option>
     <option value="ford-mustang">Ford Mustang</option>
