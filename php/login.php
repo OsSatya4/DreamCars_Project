@@ -29,10 +29,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION["fullname"] = $fullname;
             echo "<script>alert('Sikeres bejelentkezes! Udv, $fullname'); window.location.href='../html/index.html';</script>";
         } else {
-            echo "<script>alert('Hibas jelszo!'); window.location.href='login.html';</script>";
+            echo "<script>alert('Hibas jelszo!'); window.location.href='../html/login.html';</script>";
         }
     } else {
-        echo "<script>alert('Nincs ilyen felhasznalo!'); window.location.href='login.html';</script>";
+        echo "<script>alert('Nincs ilyen felhasznalo!'); window.location.href='../html/login.html';</script>";
     }
 
     $stmt->close();
