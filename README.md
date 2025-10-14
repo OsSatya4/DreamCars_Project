@@ -46,5 +46,6 @@ JavaScript ES6+
 Reszponzív webdesign
 
 Szerző és kapcsolat
-Projekt készítője: Juhász Ferenc Dániel, Varga Dárius, Osikóczki Sándor Mátyás - [CTRL+C]
+Projekt készítője: Juhász Ferenc Dániel, Varga Roland Dáriusz, Osikóczki Sándor Mátyás
+Elérhetőség: [Email cím vagy más elérhetőség]
 
