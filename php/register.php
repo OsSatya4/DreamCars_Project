@@ -19,9 +19,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("sss", $fullname, $email, $password);
 
     if ($stmt->execute()) {
-        echo "<script>alert('Sikeres regisztracio!'); window.location.href='../html/login.html';</script>";
+        echo "<script>alert('Sikeres regisztracio!'); window.location.href='login.html';</script>";
     } else {
-        echo "<script>alert('Hiba: Email mar letezik vagy adatbazis hiba!'); window.location.href='../html/register.html';</script>";
+        echo "<script>alert('Hiba: Email mar letezik vagy adatbazis hiba!'); window.location.href='register.html';</script>";
     }
 
     $stmt->close();
