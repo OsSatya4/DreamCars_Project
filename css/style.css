@@ -511,6 +511,12 @@ main.cars-page {
   transform: scale(1.05);
 }
 
+.car-card-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
 .car-card h3 {
   color: #e50914;
   font-size: 1.6rem;
@@ -561,6 +567,55 @@ main.cars-page {
 .car-details-list strong {
   color: #e50914;
   font-weight: bold;
+}
+
+.car-book-btn {
+  display: block;
+  width: calc(100% - 40px);
+  margin: 0 20px 20px 20px;
+  padding: 14px 20px;
+  background: linear-gradient(135deg, #e50914, #b20710);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Orbitron', sans-serif;
+  box-shadow: 0 4px 10px rgba(229, 9, 20, 0.3);
+}
+
+.car-book-btn:hover {
+  background: linear-gradient(135deg, #ff0a1a, #e50914);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(229, 9, 20, 0.5);
+}
+
+.car-book-btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(229, 9, 20, 0.4);
+}
+
+/* Mobil responsive */
+@media (max-width: 768px) {
+  .car-book-btn {
+    width: calc(100% - 30px);
+    margin: 0 15px 15px 15px;
+    padding: 12px 20px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .car-book-btn {
+    width: calc(100% - 24px);
+    margin: 0 12px 12px 12px;
+    padding: 10px 15px;
+    font-size: 0.95rem;
+  }
 }
 
 /* ÜRES ÜZENET */
@@ -816,3 +871,271 @@ main.cars-page {
     font-size: 0.8rem;
   }
 }
+
+/* STATISZTIKA SZEKCIÓ */
+.stats-section {
+  max-width: 1400px;
+  margin: 3rem auto 2rem auto;
+  padding: 0 20px;
+}
+
+.stats-section h2 {
+  text-align: center;
+  color: #e50914;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.stats-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: linear-gradient(145deg, #1a1a1a, #222);
+  border-radius: 15px;
+  padding: 40px 30px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+  transition: all 0.4s ease;
+  border: 1px solid #2a2a2a;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #e50914, #b20710);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.stat-card:hover::before {
+  transform: scaleX(1);
+}
+
+.stat-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(229, 9, 20, 0.4);
+  border-color: #e50914;
+}
+
+.stat-icon {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  display: block;
+  color: #e50914;
+  animation: float 3s ease-in-out infinite;
+  text-shadow: 0 0 20px rgba(229, 9, 20, 0.3);
+}
+
+.stat-card:hover .stat-icon {
+  color: #ff0a1a;
+  text-shadow: 0 0 30px rgba(229, 9, 20, 0.6);
+  transform: scale(1.1);
+  transition: all 0.3s ease;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.stat-number {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #e50914;
+  margin: 15px 0;
+  font-family: 'Orbitron', sans-serif;
+  text-shadow: 0 0 20px rgba(229, 9, 20, 0.5);
+}
+
+.stat-label {
+  font-size: 1.2rem;
+  color: #ccc;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+.stat-description {
+  font-size: 0.9rem;
+  color: #888;
+  margin-top: 10px;
+  font-style: italic;
+}
+
+/* Reszponzív */
+@media (max-width: 768px) {
+  .stats-section h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .stats-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .stat-card {
+    padding: 30px 20px;
+  }
+
+  .stat-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+  }
+
+  .stat-label {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-section {
+    padding: 0 10px;
+  }
+
+  .stat-icon {
+    font-size: 2.5rem;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  .stat-label {
+    font-size: 0.95rem;
+  }
+
+  .stat-description {
+    font-size: 0.85rem;
+  }
+}
+
+
+/* NAPTÁR*/
+
+ .calendar-wrap{
+      width:420px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:18px;
+    }
+
+    /* heti fejléc */
+    .weekday-head{
+      border:2px solid rgba(0, 0, 0, 0.12);
+      padding:12px 18px;
+      width:100%;
+      display:grid;
+      grid-template-columns:repeat(7,1fr);
+      gap:10px;
+      justify-items:center;
+      background:transparent;
+      color:var(--white);
+      font-weight:700;
+      letter-spacing:1px;
+    }
+
+    .month-block{
+      width:100%;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:10px;
+    }
+
+    .month-title{
+      color:var(--white);
+      font-weight:600;
+      margin-top:6px;
+      margin-bottom:6px;
+    }
+
+    .weeks{
+      width:100%;
+      display:grid;
+      grid-template-columns:repeat(7,1fr);
+      gap:16px 14px;
+      justify-items:center;
+      align-items:center;
+    }
+
+    .day-pill{
+      width:54px;
+      height:36px;
+      border-radius:999px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--white);
+      font-weight:700;
+      background:transparent;
+      transition:transform .12s ease, box-shadow .12s ease;
+      cursor:pointer;
+      box-shadow:0 1px 0 rgba(0,0,0,0.2) inset;
+    }
+
+    .day-outside{
+      color:var(--muted);
+      font-weight:600;
+      opacity:0.6;
+    }
+
+    .available{
+      background:linear-gradient(180deg,var(--accent),var(--accent-2));
+      color:var(--white);
+    }
+
+    .selected{
+      background:linear-gradient(180deg,var(--selected),#e50707);
+      color:#fff;
+    }
+
+    .muted-number{
+      color:var(--muted);
+    }
+
+    .controls{
+      display:flex;
+      gap:8px;
+      margin-bottom:8px;
+      align-items:center;
+    }
+
+    .btn{
+      background:transparent;
+      border:1px solid rgba(255,255,255,0.08);
+      padding:6px 10px;
+      color:var(--muted);
+      border-radius:6px;
+      cursor:pointer;
+    }
+
+    
+    @media (max-width:480px){
+      .calendar-wrap{width:100%;}
+      .day-pill{width:44px;height:34px}
+    }
+
+
+
