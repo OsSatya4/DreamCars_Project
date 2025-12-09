@@ -1,66 +1,48 @@
-/**
- * @jest-environment jsdom
- */
+// stats.js - Statisztikák betöltése
+(function() {
+  'use strict';
 
-
-function animateCounter(elementId, start, end, duration) {
-  const element = document.getElementById(elementId);
-  if (!element) return;
-  
-  const range = end - start;
-  const increment = range / (duration / 16); 
-  let current = start;
-  
-  const timer = setInterval(function() {
-    current += increment;
-    if (current >= end) {
-      current = end;
-      clearInterval(timer);
+  // Statisztikák betöltése
+  async function loadStats() {
+    try {
+      const response = await fetch('../php/get_stats.php');
+      const stats = await response.json();
+      
+      if (stats.error) {
+        console.error('Statisztika hiba:', stats.message);
+        return;
+      }
+      
+      animateCounter('stat-users', 0, stats.users, 2000);
+      animateCounter('stat-bookings', 0, stats.bookings, 2000);
+      animateCounter('stat-cars', 0, stats.cars, 2000);
+      
+    } catch (error) {
+      console.error('Statisztika betöltési hiba:', error);
     }
-    
-    element.textContent = Math.floor(current); 
-  }, 16);
-}
+  }
 
-describe('animateCounter Egységteszt', () => {
-
-  beforeEach(() => {
-    jest.useFakeTimers();
-   
-    document.body.innerHTML = '<div id="test-counter">0</div>';
-    jest.spyOn(global, 'clearInterval');
-  });
-
-  afterEach(() => {
-    jest.useRealTimers();
-    jest.restoreAllMocks();
-  });
-
-  test('A számláló helyesen animálódik és eléri a végértéket', () => {
-    const elementId = 'test-counter';
-    const startValue = 0;
-    const endValue = 100;
-    const duration = 1000; 
-    
-    animateCounter(elementId, startValue, endValue, duration);
-    
+  function animateCounter(elementId, start, end, duration) {
     const element = document.getElementById(elementId);
-    expect(element.textContent).toBe('0');
+    if (!element) return;
     
-   
-    jest.advanceTimersByTime(duration * 0.9);
+    const range = end - start;
+    const increment = range / (duration / 16);
+    let current = start;
     
-    
-    expect(parseInt(element.textContent)).toBeGreaterThan(75);
-    expect(parseInt(element.textContent)).toBeLessThan(100);
+    const timer = setInterval(function() {
+      current += increment;
+      if (current >= end) {
+        current = end;
+        clearInterval(timer);
+      }
+      element.textContent = Math.floor(current).toLocaleString('hu-HU');
+    }, 16);
+  }
 
-    
-    jest.advanceTimersByTime(duration * 0.1 + 16);
-    
-   
-    expect(element.textContent).toBe(String(endValue));
-    
-    
-    expect(clearInterval).toHaveBeenCalledTimes(1);
+  document.addEventListener('DOMContentLoaded', function() {
+    if (document.querySelector('.stats-section')) {
+      loadStats();
+    }
   });
-});
+})();
